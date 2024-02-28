@@ -8,10 +8,10 @@ def shuffle_lists(lists: list[list]) -> list:
     copy_lists = [lst.copy() for lst in lists]
     for i in range(len(copy_lists)):
         random.shuffle(copy_lists[i])
-    while any(copy_lists[0][i] == copy_lists[1][i] or
-              copy_lists[0][i] == copy_lists[2][i] or
-              copy_lists[1][i] == copy_lists[2][i]
-              for i in range(len(copy_lists[0]))):
+    while any(copy_lists[j][i] == copy_lists[k][i]
+              for i in range(len(copy_lists[0]))
+              for j in range(len(copy_lists))
+              for k in range(j+1, len(copy_lists))):
         for i in range(len(copy_lists)):
             random.shuffle(copy_lists[i])
     return copy_lists
