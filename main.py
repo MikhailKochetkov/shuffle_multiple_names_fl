@@ -25,7 +25,7 @@ def repeat_element(lst: list, counts: list) -> list:
 
 
 def main():
-    read_data = pd.read_excel('Book1.xlsx', skiprows=SKIP_ROWS)
+    read_data = pd.read_excel('Book1.xlsx', skiprows=SKIP_ROWS, sheet_name='Sheet1')
     names_list = read_data.iloc[:, 0].tolist()
     counts_list = read_data.columns.tolist()[1:]
     df_dict = {}
